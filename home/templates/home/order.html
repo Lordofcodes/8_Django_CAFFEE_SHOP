@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block title %}
+Order
+{% endblock %}
+
+{% block container %}
+    <form action="{% url 'home:order' %}"></form>
+        <form action="{% url 'home:order' %}" method="POST">
+
+    </form>
+    {% csrf_token %}
+    {{ formset | crispy }}
+    <button class="btn btn-primary">ORDER</button>
+
+{% endblock %}

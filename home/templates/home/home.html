@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    <title>APP HOME</title>
+{% endblock %}
+
+{% block container %}
+<h1>COFFEE SHOP</h1>
+{#    <a href="{% url 'home:index' %}"> COFFEE SHOP </a>#}
+{% endblock %}
+
+
+{% block scripts %}
+    {{ block.super }}
+    <script src="{% static 'scripts/app.js' %}" async defer>  </script>
+{% endblock %}

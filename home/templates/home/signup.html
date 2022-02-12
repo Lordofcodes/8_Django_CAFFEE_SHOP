@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block title %}
+Signup
+{% endblock %}
+
+{% block container %}
+
+    <form action="{% url 'home:signup' %}" method="POST">
+
+    </form>
+    {% csrf_token %}
+    {{ form | crispy }}
+    <button class="btn btn-primary">Signup</button>
+{% endblock %}
