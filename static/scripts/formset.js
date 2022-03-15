@@ -1,43 +1,4 @@
-{% extends 'base.html' %}
-{% load crispy_forms_filters %}
-
-{% block title %}
-    Order
-{% endblock %}
-
-{% block container %}
-
-    <form action="{% url 'home:order' %}" method="POST">
-        {% csrf_token %}
-
-        {% if formset.non_form_errors %}
-            <div>{{ formset.non_form_errors }}</div>
-        {% endif %}
-
-        {{ formset.management_form }}
-        {{ formset.errors }}
-
-        {% for form in formset %}
-            <div class="form">
-                {{ form.errors }}
-                {{ form | crispy }}
-            </div>
-        {% endfor %}
-
-        <div id="additionalForms"></div>
-        <button id="addForm" class="btn btn-primary">Add</button>
-        <button type="submit" class="btn btn-primary">Order</button>
-
-        <div id="emptyForm" style="display: none">
-            <div>
-                {{ formset.empty_form | crispy }}
-            </div>
-        </div>
-    </form>
-
-{#    ZNIKAJACE FORMULARZE, link here script from STATICS.. THIS SCRIPT WILL WORK ALWAYS#}
-    <script>
-        const addRef = document.querySelector('#addForm');
+       const addRef = document.querySelector('#addForm');
         const formRef = document.querySelector('#emptyForm > div')
         const additionalFormsRef = document.querySelector('#additionalForms')
 
@@ -74,6 +35,3 @@
                 event.target.closest('.form').remove();
             })
         })
-    </script>
-
-{% endblock %}
